@@ -26,3 +26,8 @@ GP_dev_diff2_s=function(v){
 GP_dev_diff2_g=function(v){
   2*v[2]^(-3)*log(1+v[2]*v[3]/v[1])-2*v[3]*v[2]^(-2)/(v[1]+v[2]*v[3])-(1+1/v[2])*v[3]^2/(v[1]+v[2]*v[3])^2
 }
+
+#' @rdname GP_dev
+test=function(v){
+  print('hello')
+}
