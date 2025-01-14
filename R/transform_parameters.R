@@ -12,15 +12,15 @@
 transform_parameters <- function(theta,gamma_positive,inverse_transform=F){
   if(inverse_transform){
     if(gamma_positive){
-      theta_transformed = data.frame(st = log(theta$s),gt = log(theta$g))
+      theta_transformed = data.frame(st = log(theta$s), gt = log(theta$g))
     } else{
-      theta_transformed = data.frame(st = log(theta$s),gt = theta$g)
+      theta_transformed = data.frame(st = log(theta$s), gt = log(theta$g+0.1*exp(theta$s)))
     }
   } else{
     if(gamma_positive){
-      theta_transformed = data.frame(s = exp(theta$st), g = exp(theta$g))
+      theta_transformed = data.frame(s = exp(theta$st), g = exp(theta$gt))
     } else{
-      theta_transformed = data.frame(s = exp(theta$st), g = theta$gt)
+      theta_transformed = data.frame(s = exp(theta$st), g = -0.1*exp(theta$st) + exp(theta$gt))
     }
   }
 }
